@@ -1,0 +1,230 @@
+<head>
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+</head>
+
+
+<main class="container">
+    <header class="d-flex justify-content-between header">
+        <div class="logo">
+            <img src="@/assets/img/pictos/logo.jpg" alt="Logo">
+        </div>
+        <div class="right-menu d-flex">
+            <div class="account">
+                <span class="my-account">My account</span>
+                <div class="account-menu">
+                    <span class="name">Henri Jenkens</span>
+                    <span>Crédits : 300€</span>
+                    <button class="add-credit">Ajouter du crédit +</button>
+                    <button class="logout">Se déconnecter</button>
+                </div>
+            </div>
+            <div class="basket">
+                <div class="img">
+                    <img src="@/assets/img/pictos/basket.svg" alt="Basket">
+                </div>
+                <div class="basket">
+                    <div class="account-menu">
+                        <span class="name">Panier</span>
+                        <div class="items-list">
+                            <div class="d-flex">
+                                <span class="quantity">1X</span>
+                                <span>Super snickers</span>
+                            </div>
+                        </div>
+                        <button class="logout">Payer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header><!-- /.header -->
+    <div class="home">
+        <div class="actions-bar d-flex">
+            <div class="search-bar">
+                <input type="text" placeholder="rechercher un produit">
+            </div>
+            <div class="select">
+                <div class="displayed">Ordre alphabétique</div>
+                <div class="options">
+                    <button class="selected">Ordre alphabétique</button>
+                    <button>Ordre alphabétique inv.</button>
+                    <button>Prix Ascendant</button>
+                    <button>Prix Descendant</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.home -->
+    <div class="description">
+        <button class="back">Retour à tous les produits</button>
+        <div class="description-content d-flex">
+            <div class="image" style="background: url(https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg); background-size: cover;">
+                <img class="hide" src="https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg" alt="Amazing image">
+            </div>
+            <div class="text-side">
+                <h2>Super snickers blancs</h2>
+                <div>
+                    <span class="name">Snickers blancs</span>
+                    <div class="rating">
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star.svg" alt="Star"></span>
+                    </div>
+                </div>
+                <div class="price">20€</div>
+                <div>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut cupiditate, facere? Culpa dignissimos
+                    dolorum eaque harum numquam perspiciatis ratione reprehenderit, suscipit ut! Architecto consectetur
+                    ea et fugit libero tempore unde.
+                </div>
+                <div class="quantity d-flex">
+                    <h3>Quantité</h3>
+                    <div class="quantity-number d-flex">
+                        <button>+</button>
+                        <span class="number">1x</span>
+                        <button>-</button>
+                    </div>
+                </div>
+                <button class="cta">Ajouter au panier</button>
+            </div>
+        </div>
+    </div><!-- /.description -->
+    <div class="login">
+        <h1>Se connecter</h1>
+        <div class="login-box">
+            <input type="text" placeholder="username">
+            <input type="password" placeholder="password">
+            <button class="cta">Se connecter</button>
+        </div>
+    </div><!-- /.login -->
+    <div class="product-list d-flex justify-content-between">
+        <div class="product-item">
+            <div class="product-image" style="background: url(https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg); background-size: cover;">
+                <img class="hide" src="https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg" alt="Shoes">
+            </div>
+            <div class="description d-flex">
+                <div class="left-content">
+                    <span class="name">Snickers blancs</span>
+                    <div class="rating">
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star.svg" alt="Star"></span>
+                    </div>
+                </div>
+                <div class="right-content">
+                    <span class="price">$580</span>
+                    <button class="add d-flex"><img src="@/assets/img/pictos/add.svg" alt="Ajouter"></button>
+                </div>
+            </div><!-- /.description d-flex -->
+        </div><!-- /.product-item -->
+
+        <div class="product-item">
+            <div class="product-image" style="background: url(https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg); background-size: cover;">
+                <img class="hide" src="https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg" alt="Shoes">
+            </div>
+            <div class="description d-flex">
+                <div class="left-content">
+                    <span class="name">Snickers blancs</span>
+                    <div class="rating">
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star.svg" alt="Star"></span>
+                    </div>
+                </div>
+                <div class="right-content">
+                    <span class="price">$580</span>
+                    <button class="add d-flex"><img src="@/assets/img/pictos/add.svg" alt="Ajouter"></button>
+                </div>
+            </div>
+        </div><!-- /.product-item -->
+
+        <div class="product-item">
+            <div class="product-image" style="background: url(https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg); background-size: cover;">
+                <img class="hide" src="https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg" alt="Shoes">
+            </div>
+            <div class="description d-flex">
+                <div class="left-content">
+                    <span class="name">Snickers blancs</span>
+                    <div class="rating">
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star.svg" alt="Star"></span>
+                    </div>
+                </div>
+                <div class="right-content">
+                    <span class="price">$580</span>
+                    <button class="add d-flex"><img src="@/assets/img/pictos/add.svg" alt="Ajouter"></button>
+                </div>
+            </div>
+        </div><!-- /.product-item -->
+
+        <div class="product-item">
+            <div class="product-image" style="background: url(https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg); background-size: cover;">
+                <img class="hide" src="https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg" alt="Shoes">
+            </div>
+            <div class="description d-flex">
+                <div class="left-content">
+                    <span class="name">Snickers blancs</span>
+                    <div class="rating">
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star.svg" alt="Star"></span>
+                    </div>
+                </div>
+                <div class="right-content">
+                    <span class="price">$580</span>
+                    <button class="add d-flex"><img src="@/assets/img/pictos/add.svg" alt="Ajouter"></button>
+                </div>
+            </div>
+        </div><!-- /.product-item -->
+
+        <div class="pagination">
+            <div class="page-list d-flex">
+                <button class="page page-active">1</button>
+                <button class="page">2</button>
+                <button class="page">3</button>
+                <button class="page">4</button>
+                <button class="page">5</button>
+            </div>
+        </div><!-- /.pagination -->
+    </div><!-- /.product-list -->
+    <div class="summary">
+        <h1>Récapitulatif de la commande</h1>
+        <div class="summary-box">
+            <div class="summary-item d-flex">
+                <div class="quantity">
+                    <button>+</button>
+                    <span class="number">1x</span>
+                    <button>-</button>
+                </div>
+                <div class="image" style="background: url(https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg); background-size: cover;">
+                    <img class="hide" src="https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg" alt="Amazing image">
+                </div>
+                <div class="title">Super snickers blancs</div>
+                <div class="price">12€</div>
+                <button class="delete">Supprimer</button>
+            </div>
+            <div class="total-summary d-flex">
+                <h3>Total</h3>
+                <strong class="total-price">20€</strong>
+            </div>
+        </div>
+        <p class="error">Vous n'avez pas assez de crédit :(</p>
+        <div class="thank-you">
+            <h2>Merci de votre commande !</h2>
+            <p>Votre référence : <strong>#363434347AEBF</strong></p>
+            <p>Date de livraison estimée : <strong>2 janvier 2020</strong></p>
+            <button class="cta">Retour à l'accueil</button>
+        </div>
+        <button class="cta pay">Payer</button>
+    </div><!-- /.summaty -->
+</main>
