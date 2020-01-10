@@ -1,27 +1,30 @@
 <template>
     <div class="description">
-        <button class="back">Retour à tous les produits</button>
+        <router-link :to="{name:'product-list'}" class="back">Retour à tous les produits</router-link>
+
         <div class="description-content d-flex">
-            <div class="image" style="background: url(https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg); background-size: cover;">
-                <img class="hide" src="https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg" alt="Amazing image">
+            <div class="image" v-bind:src="product.image">
+                <img v-bind:src="product.image" alt="">
             </div>
             <div class="text-side">
-                <h2>Super snickers blancs</h2>
+                <h2>{{product.name}}</h2>
                 <div>
-                    <span class="name">Snickers blancs</span>
+                    <span class="name">{{product.name}}</span>
                     <div class="rating">
+                        <!-- <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
                         <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
                         <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
                         <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
-                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
-                        <span><img src="@/assets/img/pictos/star.svg" alt="Star"></span>
+                        <span><img src="@/assets/img/pictos/star.svg" alt="Star"></span> -->
+                        <span>{{product.rating}}</span>
                     </div>
                 </div>
-                <div class="price">20€</div>
-                <div>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut cupiditate, facere? Culpa dignissimos
-                    dolorum eaque harum numquam perspiciatis ratione reprehenderit, suscipit ut! Architecto consectetur
-                    ea et fugit libero tempore unde.
+                <!-- <div class="price">20€</div> -->
+                <div class="price">
+                    {{product.price}}€
+                </div>
+                <div class="">
+                    {{product.description}}
                 </div>
                 <div class="quantity d-flex">
                     <h3>Quantité</h3>
@@ -39,7 +42,21 @@
 
 <script>
 export default {
-  name: "Product"
+    name: "Product",
+    data(){
+        return{ product:{}}
+    },
+    methods: {
+        getProduct() {
+            this.product = this.$store.state.products.find(el => {
+                return el.id === this.$route.params.id
+            })
+        }
+    },
+    created() {
+        //do something after creating vue instance
+        this.getProduct();
+    }
 };
 </script>
 

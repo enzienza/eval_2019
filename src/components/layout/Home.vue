@@ -1,6 +1,6 @@
 <template>
 <div class="">
-    <AppHeader></AppHeader>
+    <!-- <AppHeader></AppHeader> -->
     <div class="home">
         <div class="actions-bar d-flex">
             <div class="search-bar">
@@ -9,6 +9,8 @@
             <div class="select">
                 <div class="displayed">Ordre alphabétique</div>
                 <div class="options">
+                    <!-- créer input personnalisser -->
+
                     <!-- <button class="selected">Ordre alphabétique</button>
                     <button>Ordre alphabétique inv.</button>
                     <button>Prix Ascendant</button>
@@ -22,13 +24,10 @@
 </template>
 
 <script>
-import AppHeader from "@/components/layout/AppHeader"
+// import AppHeader from "@/components/layout/AppHeader"
 
 export default {
     name: "Home",
-    components: {
-      AppHeader
-    }
 }
 </script>
 

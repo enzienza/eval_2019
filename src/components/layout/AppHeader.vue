@@ -1,24 +1,24 @@
 <template>
     <header class="d-flex justify-content-between header">
-        <div class="logo">
+        <div class="logo" style="cursor:pointer;">
             <img src="@/assets/img/pictos/logo.jpg" alt="Logo">
         </div>
         <div class="right-menu d-flex">
-            <!-- <Account></Account> -->
-            <div class="basket">
-                <div class="img">
-                    <img src="@/assets/img/pictos/basket.svg" alt="Basket">
-                </div>
-                <!-- <Basket></Basket> -->
-                <router-link></router-link>
-            </div>
+            <Account></Account>
+            <Basket></Basket>
         </div>
     </header><!-- /.header -->
 </template>
 
 <script>
+import Basket  from "../panier/Basket"
+import Account from "../users/Account"
 export default {
-  name: "AppHeader"
+    name: "AppHeader",
+    components: {
+        Basket, Account
+    },
+
 };
 </script>
 

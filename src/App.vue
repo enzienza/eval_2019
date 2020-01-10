@@ -1,19 +1,28 @@
 <template>
 
     <main class="container">
-        <!-- <AppHeader></AppHeader> -->
+        <AppHeader></AppHeader>
         <router-view></router-view>
     </main>
 </template>
 
 <script>
-// import AppHeader from "@/components/layout/AppHeader"
-
+import AppHeader from "@/components/layout/AppHeader"
+import {mapState,mapActions} from "vuex"
 export default {
     name: "App",
-    // components: {
-    //     AppHeader
-    // }
+    components: {
+        AppHeader
+    },
+    computed:{
+        ...mapState(["products"])
+    },
+    methods:{
+        ...mapActions(["setProducts"])
+    },
+    created() {
+      this.setProducts();
+    }
 }
 </script>
 

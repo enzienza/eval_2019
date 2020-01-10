@@ -1,22 +1,16 @@
 <template>
     <div class="product-list d-flex justify-content-between">
-        <router-link :to="{name:'product',params:{id:product}}" v-for="product in products" class="product" :key="product">
-            <div class="product-image" style="background: url(https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg); background-size: cover;">
-            <!-- <div class="product-image" v-bind:src="product.image" >     -->
-                <img class="hide" src="https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg" alt="Shoes">
-                <!-- <img v-bind:src="product.image" alt=""> -->
+        <router-link :to="{name:'product',params:{id:product.id}}" v-for="product in products" class="product shadow-sm" :key="product">
+            <div class="product-image" v-bind:src="product.image">
+                <img v-bind:src="product.image" alt="">
             </div>
             <div class="description d-flex">
                 <div class="left-content">
                     <span class="name">{{product.name}}</span>
-                    <div class="rating">
-                        <!-- <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
-                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
-                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
-                        <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
-                        <span><img src="@/assets/img/pictos/star.svg" alt="Star"></span> -->
+                    <Rating>
                         <span>{{product.rating}}</span>
-                    </div>
+                    </Rating>
+                    
                 </div>
                 <div class="right-content">
                     <span class="price">${{product.price}}</span>
@@ -34,28 +28,42 @@
 
 <script>
 import Pagination from "./Pagination"
-import axios from "axios"
+import Rating from "./Rating"
+import {mapState} from "vuex"
 export default {
     name: "ProductList",
     components: {
-        Pagination
+        Pagination, Rating
     },
-    data(){
-        return{
-            products:[]
-        }
+    computed:{
+        ...mapState(["products"])
     },
-    created() {
-      //do something after creating vue instance
-      axios.get("https://5df6a0ebc1b62e0014e2088c.mockapi.io/products").then((res)=> {
-          this.products = res.data
-
-      }).catch((res)=>{
-          console.log("Probleme avec la requete" + res.data)
-      })
-    }
 };
 </script>
 
 <style scoped>
+.product-image{
+    width: 345px;
+    height: 500px;
+}
+.description{
+    position: relative;
+    top: -1em;
+}
+.left-content{
+    width: 250px;
+    height: 80px;
+}
+.right-content{
+    width: 95px;
+    height: 80px;
+}
+.product{
+    margin-bottom: 3em;
+    max-height: 570px;
+}
+.product:hover{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+
 </style>

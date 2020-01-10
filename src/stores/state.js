@@ -1,10 +1,12 @@
 /**
 * [state]
-* Fonctionne comme un data(){...} 
+* Fonctionne comme un data(){...}
 * @type {Object}
 */
 
 
 export const state = {
-    // products:[]
+    products:[],
+    panier:[],
+    credits: 500
 };
