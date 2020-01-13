@@ -1,12 +1,17 @@
 /**
-* [state]
-* Fonctionne comme un data(){...}
-* @type {Object}
-*/
-
+ * [state]
+ * Fonctionne comme un data(){...}
+ * @type {Object}
+ */
 
 export const state = {
-    products:[],
-    panier:[],
-    credits: 500
+  // API
+  products: [],
+
+  // crédit utilisateur
+  credits: 500,
+
+  // panier
+  quantity: 1,
+  panier: []
 };

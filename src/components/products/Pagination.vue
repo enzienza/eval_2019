@@ -17,4 +17,7 @@ export default {
 </script>
 
 <style scoped>
+.pagination{
+    margin-bottom: 2em;
+}
 </style>
