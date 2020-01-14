@@ -18,5 +18,20 @@ export const mutations = {
   // diminuer la quantité
   subQuantity(state) {
     if (state.quantity > 1) state.quantity--;
+  },
+
+  // Ajouter au panier
+  addProduct(state, payload) {
+    state.cart.push({
+      id: new Date().getTime(),
+      quantity: state.quantity,
+      //name: state.products,
+      ...payload
+    });
   }
+
+  // ajouter item Panier
+  // addCurrentCart(state, currentCart) {
+  //   state.currentCart = currentCart;
+  // }
 };

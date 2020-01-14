@@ -33,11 +33,13 @@
           <h3>Quantité</h3>
           <div class="quantity-number d-flex">
             <button @click="addQuantity">+</button>
-            <span class="number">{{ $store.state.quantity }}</span>
+            <span class="number">{{ quantity }}</span>
             <button @click="subQuantity">-</button>
           </div>
         </div>
-        <button class="cta">Ajouter au panier</button>
+        <button class="cta" @click="addProduct(product)">
+          Ajouter au panier
+        </button>
       </div>
     </div>
   </div>
@@ -59,10 +61,10 @@ export default {
     Rating
   },
   computed: {
-    ...mapState(["products", "quantity"])
+    ...mapState(["products", "quantity", "cart"])
   },
   methods: {
-    ...mapActions(["addQuantity", "subQuantity"]),
+    ...mapActions(["addQuantity", "subQuantity", "addProduct"]),
 
     // Afficher le produit selectionner
     getProduct() {

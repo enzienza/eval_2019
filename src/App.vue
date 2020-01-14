@@ -14,10 +14,10 @@ export default {
     AppHeader
   },
   computed: {
-    ...mapState(["products", "quantity"])
+    ...mapState(["products", "cart"])
   },
   methods: {
-    ...mapActions(["setProducts"]),
+    ...mapActions(["setProducts", "addProduct"]),
 
     // Afficher le produit selectionner
     getProduct() {

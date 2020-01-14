@@ -18,7 +18,7 @@
         </div>
         <div class="right-content">
           <span class="price">${{ product.price }}</span>
-          <button class="add d-flex">
+          <button @click="addProduct(product)" class="add d-flex">
             <img src="@/assets/img/pictos/add.svg" alt="Ajouter" />
           </button>
         </div>
@@ -36,7 +36,7 @@
 <script>
 import Pagination from "./Pagination";
 import Rating from "./Rating";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "ProductList",
   components: {
@@ -44,7 +44,10 @@ export default {
     Rating
   },
   computed: {
-    ...mapState(["products"])
+    ...mapState(["products", "quantity", "cart"])
+  },
+  methods: {
+    ...mapActions(["appProduct"])
   }
 };
 </script>

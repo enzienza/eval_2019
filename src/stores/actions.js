@@ -26,5 +26,15 @@ export const actions = {
   // Diminuer la quantité
   subQuantity({ commit }) {
     commit("subQuantity");
+  },
+
+  // Ajouter au panier
+  addProduct({ commit }) {
+    commit("addProduct");
   }
+
+  // ajouter item Panier
+  // addCurrentCart({ commit }) {
+  //   commit("addCurrentCart");
+  // }
 };
