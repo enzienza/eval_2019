@@ -11,8 +11,7 @@ export const state = {
   // crédit utilisateur
   credits: 500,
 
-  // element panier
-  quantity: 1,
+  // panier
   cart: [],
-  currentCart: null
+  quantity: 1
 };

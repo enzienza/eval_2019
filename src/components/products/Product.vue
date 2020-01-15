@@ -13,13 +13,6 @@
         <div>
           <span class="name">{{ product.name }}</span>
           <div class="rating">
-            <!--
-                <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
-                <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
-                <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
-                <span><img src="@/assets/img/pictos/star-fill.svg" alt="Star"></span>
-                <span><img src="@/assets/img/pictos/star.svg" alt="Star"></span>
-            -->
             <span>{{ product.rating }}</span>
             <Rating></Rating>
           </div>
@@ -32,12 +25,12 @@
         <div class="quantity d-flex">
           <h3>Quantité</h3>
           <div class="quantity-number d-flex">
-            <button @click="addQuantity">+</button>
+            <button @click="addQuantity(product)">+</button>
             <span class="number">{{ quantity }}</span>
-            <button @click="subQuantity">-</button>
+            <button @click="subQuantity(product)">-</button>
           </div>
         </div>
-        <button class="cta" @click="addProduct(product)">
+        <button class="cta" @click="addToCart(product)">
           Ajouter au panier
         </button>
       </div>
@@ -48,7 +41,7 @@
 
 <script>
 import Rating from "./Rating";
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   name: "Product",
   data() {
@@ -61,10 +54,11 @@ export default {
     Rating
   },
   computed: {
-    ...mapState(["products", "quantity", "cart"])
+    ...mapState(["products", "cart", "quantity"])
   },
   methods: {
-    ...mapActions(["addQuantity", "subQuantity", "addProduct"]),
+    ...mapMutations(["addProduct"]),
+    ...mapActions(["addQuantity", "subQuantity", "addToCart"]),
 
     // Afficher le produit selectionner
     getProduct() {

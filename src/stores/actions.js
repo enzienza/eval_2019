@@ -29,12 +29,12 @@ export const actions = {
   },
 
   // Ajouter au panier
-  addProduct({ commit }) {
-    commit("addProduct");
+  addToCart({ commit, state }, product) {
+    let found = state.cart.some(el => {
+      return el.name === product.name;
+    });
+    if (!found) {
+      commit("addProduct", product);
+    }
   }
-
-  // ajouter item Panier
-  // addCurrentCart({ commit }) {
-  //   commit("addCurrentCart");
-  // }
 };

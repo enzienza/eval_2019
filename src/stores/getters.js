@@ -6,5 +6,9 @@
  */
 
 export const getters = {
-
+  itemCount(state, index) {
+    if (index >= 0) {
+      return state.cart[index].quantity;
+    }
+  }
 };

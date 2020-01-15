@@ -21,17 +21,8 @@ export const mutations = {
   },
 
   // Ajouter au panier
-  addProduct(state, payload) {
-    state.cart.push({
-      id: new Date().getTime(),
-      quantity: state.quantity,
-      //name: state.products,
-      ...payload
-    });
+  addProduct(state, product) {
+    product = { ...product, quantity: state.quantity };
+    state.cart = [...state.cart, product];
   }
-
-  // ajouter item Panier
-  // addCurrentCart(state, currentCart) {
-  //   state.currentCart = currentCart;
-  // }
 };
