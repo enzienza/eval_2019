@@ -7,17 +7,18 @@
 
 <script>
 import AppHeader from "@/components/layout/AppHeader";
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   name: "App",
   components: {
     AppHeader
   },
   computed: {
-    ...mapState(["products", "cart"])
+    ...mapState(["products", "cart", "quantity"])
   },
   methods: {
-    ...mapActions(["setProducts", "addProduct"]),
+    ...mapMutations(["addProduct"]),
+    ...mapActions(["setProducts", "addToCart"]),
 
     // Afficher le produit selectionner
     getProduct() {
