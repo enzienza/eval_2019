@@ -2,26 +2,25 @@
   <div class="summary">
     <h1>Récapitulatif de la commande</h1>
     <div class="summary-box">
-      <div class="summary-item d-flex">
+      <!-- <span>{{ cart.length }}</span> -->
+      <div
+        class="summary-item d-flex"
+        v-for="itemCart in cart"
+        :key="itemCart.id"
+      >
         <div class="quantity">
           <button @click="addQuantity">+</button>
-          <span class="number">{{ quantity }}</span>
+          <span class="number">{{ itemCart.quantity }}</span>
           <button @click="subQuantity">-</button>
         </div>
-        <div
-          class="image"
-          style="background: url(https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg); background-size: cover;"
-        >
-          <img
-            class="hide"
-            src="https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_1280.jpg"
-            alt="Amazing image"
-          />
+        <div class="image" :src="itemCart.image">
+          <img :src="itemCart.image" alt="Amazing image" />
         </div>
-        <div class="title">Super snickers blancs</div>
-        <div class="price">12€</div>
+        <div class="title">{{ itemCart.name }}</div>
+        <div class="price">{{ itemCart.price }}€</div>
         <button class="delete">Supprimer</button>
       </div>
+
       <div class="total-summary d-flex">
         <h3>Total</h3>
         <strong class="total-price">20€</strong>
@@ -32,7 +31,9 @@
       <h2>Merci de votre commande !</h2>
       <p>Votre référence : <strong>#363434347AEBF</strong></p>
       <p>Date de livraison estimée : <strong>2 janvier 2020</strong></p>
-      <button class="cta">Retour à l'accueil</button>
+      <router-link :to="{ name: 'product-list' }" class="cta">
+        Retour à l'accueil
+      </router-link>
     </div>
     <button class="cta pay">Payer</button>
   </div>
@@ -43,11 +44,15 @@ import { mapState, mapActions } from "vuex";
 export default {
   name: "Summary",
   computed: {
-    ...mapState(["quantity"])
+    ...mapState(["products", "cart", "quantity"])
   },
   methods: {
     ...mapActions(["addQuantity", "subQuantity"])
   }
 };
 </script>
-<style scoped=""></style>
+<style scoped="">
+.summary {
+  margin-top: 2rem;
+}
+</style>

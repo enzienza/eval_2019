@@ -38,9 +38,9 @@ export default {
     ...mapState(["products", "cart"])
   },
   methods: {
-    logout() {
-      console.log("hello");
-    }
+    // logout() {
+    //   return this.$router.push({ name: "summary" });
+    // }
   }
 };
 </script>
