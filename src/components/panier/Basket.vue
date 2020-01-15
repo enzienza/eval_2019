@@ -14,6 +14,10 @@
           </div>
         </div>
         <!-- <button @click="logout" class="logout">Payer</button> -->
+
+        <p v-if="cart.length === 0">
+          Votre panier est vide
+        </p>
         <router-link
           :to="{ name: 'summary', params: { id: cart.id } }"
           class="logout"

@@ -23,7 +23,7 @@
 
       <div class="total-summary d-flex">
         <h3>Total</h3>
-        <strong class="total-price">20€</strong>
+        <strong class="total-price">{{ cartTotal }}€</strong>
       </div>
     </div>
     <p class="error">Vous n'avez pas assez de crédit :(</p>
@@ -40,11 +40,12 @@
   <!-- /.summaty -->
 </template>
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 export default {
   name: "Summary",
   computed: {
-    ...mapState(["products", "cart", "quantity"])
+    ...mapState(["products", "cart", "quantity"]),
+    ...mapGetters(["cartTotal"])
   },
   methods: {
     ...mapActions(["addQuantity", "subQuantity"])
