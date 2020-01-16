@@ -9,9 +9,11 @@
         :key="itemCart.id"
       >
         <div class="quantity">
-          <button @click="changeQuantity(item.cart)">+</button>
+          <button @click="itemCart.quantity++">+</button>
           <span class="number">{{ itemCart.quantity }}</span>
-          <button @click="changeQuantity(itemCart)">-</button>
+          <button @click="itemCart.quantity > 1 ? itemCart.quantity-- : null">
+            -
+          </button>
         </div>
         <div class="image" :src="itemCart.image">
           <img :src="itemCart.image" alt="Amazing image" />
@@ -51,7 +53,7 @@ export default {
     ...mapGetters(["cartTotal"])
   },
   methods: {
-    ...mapActions(["addQuantity", "subQuantity", "removeProduct"])
+    ...mapActions(["removeProduct"])
   }
 };
 </script>
