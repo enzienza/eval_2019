@@ -30,11 +30,16 @@ export const actions = {
 
   // Ajouter au panier
   addToCart({ commit, state }, product) {
-    let found = state.cart.some(el => {
+    const found = state.cart.some(el => {
       return el.name === product.name;
     });
     if (!found) {
       commit("addProduct", product);
     }
+  },
+
+  // Supprimer
+  removeProduct({ commit }, product) {
+    commit("removeProduct", product);
   }
 };

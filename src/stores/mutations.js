@@ -24,5 +24,11 @@ export const mutations = {
   addProduct(state, product) {
     product = { ...product, quantity: state.quantity };
     state.cart = [...state.cart, product];
+  },
+
+  // Supprimer
+  removeProduct(state, product) {
+    // splice() => retire ou ajoute un élément du tableu
+    state.cart.splice(product, 1);
   }
 };

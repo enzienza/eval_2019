@@ -13,6 +13,8 @@ export const getters = {
   // },
 
   cartTotal(state) {
+    // reduce() => "accumulateur" traite chaque valeur d'une liste
+    // toFixed() => précise le nombre de chiffres après la virgule
     return state.cart.reduce((a, b) => a + b.price * b.quantity, 0).toFixed(2);
   }
 };

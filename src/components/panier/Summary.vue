@@ -9,16 +9,19 @@
         :key="itemCart.id"
       >
         <div class="quantity">
-          <button @click="addQuantity">+</button>
+          <button @click="changeQuantity(item.cart)">+</button>
           <span class="number">{{ itemCart.quantity }}</span>
-          <button @click="subQuantity">-</button>
+          <button @click="changeQuantity(itemCart)">-</button>
         </div>
         <div class="image" :src="itemCart.image">
           <img :src="itemCart.image" alt="Amazing image" />
         </div>
         <div class="title">{{ itemCart.name }}</div>
         <div class="price">{{ itemCart.price }}€</div>
-        <button class="delete">Supprimer</button>
+        <!-- <button class="delete">Supprimer</button> -->
+        <button class="delete" @click="removeProduct(itemCart)">
+          <i class="far fa-trash-alt"></i>
+        </button>
       </div>
 
       <div class="total-summary d-flex">
@@ -48,12 +51,19 @@ export default {
     ...mapGetters(["cartTotal"])
   },
   methods: {
-    ...mapActions(["addQuantity", "subQuantity"])
+    ...mapActions(["addQuantity", "subQuantity", "removeProduct"])
   }
 };
 </script>
 <style scoped="">
 .summary {
   margin-top: 2rem;
+}
+.delete {
+  font-size: 1.2em;
+  margin-left: 1em;
+}
+.delete:hover {
+  color: red;
 }
 </style>
