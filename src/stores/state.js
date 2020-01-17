@@ -10,6 +10,8 @@ export const state = {
 
   // crédit utilisateur
   credits: 500,
+  username: "turlututu",
+  password: "chapeau pointu",
 
   // panier
   cart: [],
