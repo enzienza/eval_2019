@@ -8,75 +8,80 @@
       My account
     </span>
     <div class="account-menu" v-if="isConnect">
-      <!-- <div v-show="!isLogin">
-        <button @click="logout" class="logout">{{ buttonValue }}</button>
-      </div>
-      <div v-show="isLogin"> -->
       <span class="name">Henri Jenkens</span>
-      <span>Crédits : {{ credits }}€</span>
-      <!-- <span>Crédits : {{ soldCart }}€</span> -->
-      <button class="add-credit">Ajouter du crédit +</button>
+      <span>Crédits : {{ credit }}€</span>
+      <button @click="isAddCredit = !isAddCredit" class="add-credit">
+        Ajouter du crédit +
+      </button>
+
+      <div class="add" v-if="isAddCredit">
+        <input
+          type="number"
+          v-model="inputCredit"
+          @click.prevent="addCredit"
+          placeholder="Ajouter le montant"
+        />
+      </div>
+
       <button @click="logout" class="logout">{{ buttonValue }}</button>
-      <!-- </div> -->
     </div>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-// import { mapState, mapGetters } from "vuex";
 export default {
   name: "Account",
   data() {
     return {
       isConnect: false,
-      // isLogin: false,
-      buttonValue: "Se connecter"
+      buttonValue: "Se connecter",
+      isAddCredit: false,
+      inputCredit: ""
     };
   },
   computed: {
-    ...mapState(["products", "cart", "quantity", "credits"])
-    // ...mapGetters(["cartTotal"]),
+    ...mapState(["products", "cart", "quantity", "credits"]),
 
-    // soldCart() {
-    //   return (this.credits - this.cartTotal).toFixed(2);
-    // },
-
-    // isLoginOK() {
-    //
-    // },
+    /*
+     *
+     */
+    credit() {
+      return this.credits + this.inputCredit;
+    }
   },
   methods: {
-    // logout() {
-    //   if () {
-    //     localStorage.isLogged = false;
-    //     this.$router.push({ name: "login" });
-    //     this.isLogin = false;
-    //   } else {
-    //     this.$router.push({ name: "produc-list" });
-    //     this.isLogin = true;
-    //   }
-    // }
-
     logout() {
-      // localStorage.isLogged = false;
-      // this.$router.push({ name: "login" });
+      /* SI "localStorage.isLogged => true"
+       * alors le bouton devient "Se connecter", je suis redirigé sur la page "summaty"
+       * SINON
+       * le bouton devient ce "Se déconnecter", je suis redirigé sur la page de "login"
+       * */
       if (localStorage.isLogged === true) {
-        console.log("og");
+        console.log("ok");
         this.buttonValue = "Se connecter";
         localStorage.isLogged = true;
         this.$router.push({ name: "summary" });
-        // this.isLogin = false;
       } else {
         console.log("nope");
         this.buttonValue = "Se déconnecter";
         localStorage.isLogged = false;
         this.$router.push({ name: "login" });
-        // this.isLogin = true;
       }
+    },
+
+    addCredit() {
+      this.push(this.inputCredit);
+      this.inputCredit = "";
     }
   }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.add input {
+  width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+</style>

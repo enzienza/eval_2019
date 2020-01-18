@@ -10,10 +10,12 @@ export const state = {
 
   // crédit utilisateur
   credits: 500,
-  username: "turlututu",
-  password: "chapeau pointu",
 
   // panier
   cart: [],
-  quantity: 1
+  quantity: 1,
+
+  // filter
+  search: "",
+  searchByFilter: ""
 };
